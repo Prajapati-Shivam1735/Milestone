@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add List Items</title>
+</head>
+
+<body>
+    <h2>What You'll Learn</h2>
+    <ul id="learnList">
+        <!-- List items will be added here -->
+    </ul>
+    <button id="addButton">Add Item</button>
+    <p id="message"></p>
+
+    <script>
+        // Pre-existing array of list items
+        const learnItems = [
+            "JavaScript Basics",
+            "DOM Manipulation",
+            "Event Handling",
+            "AJAX Requests",
+            "ES6 Features"
+        ];
+
+        let currentIndex = 0;
+        const learnList = document.getElementById('learnList');
+        const addButton = document.getElementById('addButton');
+        const message = document.getElementById('message');
+
+        addButton.addEventListener('click', addItem);
+
+        function addItem() {
+            if (currentIndex < learnItems.length) {
+                const newItem = document.createElement('li');
+                newItem.textContent = learnItems[currentIndex];
+                learnList.appendChild(newItem);
+                currentIndex++;
+            } else {
+                message.textContent = "All items have been added.";
+            }
+        }
+    </script>
+</body>
+
+</html>

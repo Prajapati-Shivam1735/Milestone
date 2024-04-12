@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Simple To-Do App</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-color: #f4f4f4;
+    }
+    .container {
+        max-width: 600px;
+        margin: 20px auto;
+        background-color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        padding: 20px;
+    }
+    h1 {
+        text-align: center;
+    }
+    input[type="text"] {
+        width: calc(100% - 80px);
+        padding: 10px;
+        margin-bottom: 10px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+    }
+    button {
+        padding: 10px 20px;
+        background-color: #4caf50;
+        color: #fff;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+    ul {
+        list-style-type: none;
+        padding: 0;
+    }
+    li {
+        padding: 10px;
+        background-color: #f9f9f9;
+        border-bottom: 1px solid #ddd;
+    }
+    li:last-child {
+        border-bottom: none;
+    }
+</style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Simple To-Do App</h1>
+    <input type="text" id="todoInput" placeholder="Enter a new todo...">
+    <button onclick="addTodo()">Add</button>
+    <ul id="todoList"></ul>
+</div>
+
+<script>
+    // Function to add a new todo item
+    function addTodo() {
+        var input = document.getElementById("todoInput");
+        var todoText = input.value.trim();
+
+        if (todoText === "") {
+            alert("Please enter a todo item!");
+            return;
+        }
+
+        var todoList = document.getElementById("todoList");
+        var listItem = document.createElement("li");
+        listItem.textContent = todoText;
+
+        // Add delete button to each todo item
+        var deleteButton = document.createElement("button");
+        deleteButton.textContent = "Delete";
+        deleteButton.onclick = function() {
+            listItem.remove();
+        };
+
+        listItem.appendChild(deleteButton);
+        todoList.appendChild(listItem);
+
+        input.value = ""; // Clear input field
+    }
+</script>
+
+</body>
+</html>

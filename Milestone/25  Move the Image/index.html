@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Image Movement</title>
+<style>
+    #container {
+        position: relative;
+        width: 500px;
+        height: 500px;
+    }
+    #image {
+        position: absolute;
+        top: 0;
+        left: 0;
+        transition: top 0.2s, left 0.2s; /* Smooth transition */
+    }
+</style>
+</head>
+<body>
+<div id="container">
+    <img id="image" src="./8-82164_soothing-background.jpg" alt="Moving Image" width="500" height="500">
+</div>
+
+<script>
+    // Get the image element
+    const image = document.getElementById('image');
+    
+    // Define initial position
+    let positionX = 0;
+    let positionY = 0;
+    
+    // Function to move the image
+    function moveImage(directionX, directionY) {
+        positionX += directionX;
+        positionY += directionY;
+        image.style.left = positionX + 'px';
+        image.style.top = positionY + 'px';
+    }
+    
+    // Event listener for arrow key presses
+    document.addEventListener('keydown', function(event) {
+        switch(event.keyCode) {
+            case 37: // Left arrow
+                moveImage(-10, 0);
+                break;
+            case 38: // Up arrow
+                moveImage(0, -10);
+                break;
+            case 39: // Right arrow
+                moveImage(10, 0);
+                break;
+            case 40: // Down arrow
+                moveImage(0, 10);
+                break;
+        }
+});
+</script>
+</body>
+</html>

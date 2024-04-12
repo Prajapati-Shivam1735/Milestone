@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        .error {
+            color: red;
+        }
+        .success {
+            color: green;
+        }
+    </style>
+</head>
+<body>
+    <form id="loginForm">
+        <label for="email">Email:</label>
+        <input type="text" id="email" name="email" required>
+        <br>
+        <label for="password">Password:</label>
+        <input type="password" id="password" name="password" required>
+        <br>
+        <input type="submit" value="Submit" onclick="validateForm()">
+    </form>
+    <p id="validationMessage"></p>
+
+    <script>
+        function validateForm() {
+            const emailInput = document.getElementById("email").value;
+            const passwordInput = document.getElementById("password").value;
+
+            if (!emailInput.includes("@")) {
+                displayErrorMessage("Invalid email or password!");
+                return false;
+            }
+
+            if (passwordInput.length < 8) {
+                displayErrorMessage("Invalid email or password!");
+                return false;
+            }
+
+            displaySuccessMessage("Valid email and password!");
+            return true; 
+        }
+
+        function displayErrorMessage(message) {
+            const validationMessage = document.getElementById("validationMessage");
+            validationMessage.textContent = message;
+            validationMessage.className = "error";
+        }
+
+        function displaySuccessMessage(message) {
+            const validationMessage = document.getElementById("validationMessage");
+            validationMessage.textContent = message;
+            validationMessage.className = "success";
+        }
+    </script>
+</body>
+</html>

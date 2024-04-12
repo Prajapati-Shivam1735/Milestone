@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Random Background Color</title>
+<style>
+    body {
+        margin: 0;
+        padding: 0;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: background-color 0.5s ease;
+    }
+
+    button {
+        padding: 10px 20px;
+        font-size: 16px;
+        background-color: #333;
+        color: white;
+        border: none;
+        cursor: pointer;
+        outline: none;
+    }
+</style>
+</head>
+<body>
+
+<button id="changeColorBtn">Change Color</button>
+
+<script>
+    const colors = ['#FF5733', '#33FF57', '#5733FF', '#33B6FF', '#FF33DD', '#FFDD33'];
+
+    document.getElementById('changeColorBtn').addEventListener('click', function() {
+        const randomIndex = Math.floor(Math.random() * colors.length);
+        document.body.style.backgroundColor = colors[randomIndex];
+    });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Password Validator</title>
+    <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+    <div class="center">
+        <h1>Password Validator</h1>
+
+        <form onsubmit="return validate()">
+
+            <div class="txt_field">
+                <input type="text" name="username" placeholder="Username">
+                <span></span>
+            </div>
+
+            <div class="txt_field">
+                <input type="password" id="pswd1" name="Password" placeholder="Password">
+                <span id="message1""></span>
+        </div>
+        
+        <div class=" txt_field">
+                    <input type="password" id="pswd2" name="confirmPassword" placeholder="Confirm Password">
+                    <span id="message2"></span>
+            </div>
+
+            <input type="submit" value="Submit" id="submit">
+
+        </form>
+    </div>
+</body>
+<script src="./script.js"></script>
+
+</html>

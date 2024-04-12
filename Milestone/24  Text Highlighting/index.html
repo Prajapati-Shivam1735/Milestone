@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Highlight Words</title>
+    <style>
+        .highlight {
+            background-color: yellow;
+        }
+    </style>
+</head>
+
+<body>
+
+    <p id="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Officia ipsa eveniet reprehenderit ab sequi dolores nulla totam eligendi fugiat ex officiis, ipsum accusamus, molestias quidem error consequuntur cumque odit optio. Tempora, maxime? Sed, perspiciatis! Enim reprehenderit dolor, placeat quam, quia doloremque unde numquam dolorum earum culpa, maiores et neque similique. Lorem ipsum dolor sit amet consectetur, adipisicing elit. Id hic iusto numquam rerum ipsum, temporibus illo repellat reprehenderit earum. Ad maiores consequuntur dignissimos dolores possimus ipsam similique quo tempore delectus animi, suscipit nemo officia obcaecati voluptate velit adipisci, sit impedit? Repellendus, ducimus eos possimus maxime velit consectetur consequuntur ex dicta. Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam, ipsa.</p>
+
+    <script>
+        // Get the paragraph element
+        const paragraph = document.getElementById('paragraph');
+
+        // Split the text content of the paragraph into words
+        const words = paragraph.textContent.split(/\s+/);
+
+        // Iterate over each word
+        words.forEach(word => {
+            // Check if the word length is greater than 8
+            if (word.length > 8) {
+                // Create a span element to wrap the word
+                const span = document.createElement('span');
+                // Add the word as text content to the span
+                span.textContent = word + ' ';
+                // Add the highlight class to the span
+                span.classList.add('highlight');
+                // Replace the word in the paragraph with the span
+                paragraph.innerHTML = paragraph.innerHTML.replace(word + ' ', span.outerHTML);
+            }
+        });
+    </script>
+
+</body>
+
+</html>
